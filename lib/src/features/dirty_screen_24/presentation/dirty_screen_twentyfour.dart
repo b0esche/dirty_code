@@ -13,63 +13,35 @@ class DirtyScreenTwentyFour extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ListTile(
-            leading: const Icon(Icons.shopping_basket),
-            title: const Text(
-              'Buy groceries',
-              style: TextStyle(
-                fontSize: 18,
-                decoration: false ? TextDecoration.lineThrough : null,
-              ),
-            ),
-            trailing: Checkbox(
-              value: false,
-              onChanged: (value) {},
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.shopping_basket),
-            title: const Text(
-              'Walk the dog',
-              style: TextStyle(
-                fontSize: 18,
-                decoration: true ? TextDecoration.lineThrough : null,
-              ),
-            ),
-            trailing: Checkbox(
-              value: true,
-              onChanged: (value) {},
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.shopping_basket),
-            title: const Text(
-              'Complete homework',
-              style: TextStyle(
-                fontSize: 18,
-                decoration: false ? TextDecoration.lineThrough : null,
-              ),
-            ),
-            trailing: Checkbox(
-              value: false,
-              onChanged: (value) {},
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.shopping_basket),
-            title: const Text(
-              'Call mom',
-              style: TextStyle(
-                fontSize: 18,
-                decoration: true ? TextDecoration.lineThrough : null,
-              ),
-            ),
-            trailing: Checkbox(
-              value: true,
-              onChanged: (value) {},
-            ),
-          ),
+          TaskTile(title: "Buy Groceries", isDone: false),
+          TaskTile(title: "Walk the Dog", isDone: true),
+          TaskTile(title: "Complete Homework", isDone: false),
+          TaskTile(title: "Call mom", isDone: true),
         ],
+      ),
+    );
+  }
+}
+
+class TaskTile extends StatelessWidget {
+  final String title;
+  final bool isDone;
+  const TaskTile({required this.title, required this.isDone, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.shopping_basket),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 18,
+          decoration: isDone ? TextDecoration.lineThrough : null,
+        ),
+      ),
+      trailing: Checkbox(
+        value: isDone,
+        onChanged: (value) {},
       ),
     );
   }
