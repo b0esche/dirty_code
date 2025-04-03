@@ -12,81 +12,45 @@ class DirtyScreenEighteen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '4 + 5 = 9',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Simple Addition',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
+            DescribedCalcCard(num1: 4, num2: 5, description: "Simple Addition"),
+            DescribedCalcCard(
+                num1: 7, num2: 3, description: "Another Addition"),
+            DescribedCalcCard(
+                num1: 6, num2: 2, description: "Yet Another Addition"),
+            DescribedCalcCard(num1: 5, num2: 5, description: "Addition Again"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DescribedCalcCard extends StatelessWidget {
+  final int num1;
+  final int num2;
+  final String description;
+  const DescribedCalcCard(
+      {required this.num1,
+      required this.num2,
+      required this.description,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.all(8),
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Text(
+              '$num1 + $num2 = ${num1 + num2}',
+              style: TextStyle(fontSize: 24),
             ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '7 + 3 = 10',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Another Addition',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '6 + 2 = 8',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Yet Another Addition',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text(
-                      '5 + 5 = 10',
-                      style: TextStyle(fontSize: 24),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Addition Again',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-              ),
+            SizedBox(height: 8),
+            Text(
+              description,
+              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
