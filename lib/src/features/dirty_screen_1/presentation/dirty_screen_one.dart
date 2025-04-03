@@ -5,92 +5,42 @@ class DirtyScreenOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Dirty Screen #1"),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
+        appBar: AppBar(
+          title: const Text("Dirty Screen #1"),
+        ),
+        body: const SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Column(children: [
+              BugBox(number: 1),
+              BugBox(number: 2),
+              BugBox(number: 3),
+              BugBox(number: 4),
+            ])));
+  }
+}
+
+class BugBox extends StatelessWidget {
+  final int number;
+  const BugBox({required this.number, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12), color: Colors.redAccent),
+        margin: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #1',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
+            const Icon(Icons.bug_report),
+            const SizedBox(
+              width: 8,
             ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #2',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #3',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.redAccent),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Row(
-                children: [
-                  Icon(Icons.bug_report),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    'Box #4',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  )
-                ],
-              ),
+            Text(
+              "Box #$number",
+              style: const TextStyle(fontSize: 20, color: Colors.white),
             )
           ],
-        ),
-      ),
-    );
+        ));
   }
 }
