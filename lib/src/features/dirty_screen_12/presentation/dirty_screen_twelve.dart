@@ -12,88 +12,48 @@ class DirtyScreenTwelve extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.lightBlueAccent,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Döner',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Price: 10 €', style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 8),
-                  Text('Essen'),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.lightGreenAccent,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Yufka',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Price: 20 €', style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 8),
-                  Text('Essen'),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.purpleAccent,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Pizza',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Price: 30 €', style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 8),
-                  Text('Essen'),
-                ],
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.pinkAccent,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Sushi',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Price: 40 €', style: TextStyle(fontSize: 18)),
-                  SizedBox(height: 8),
-                  Text('Essen'),
-                ],
-              ),
-            ),
+            FoodStamp(title: "Döner", price: 10, color: Colors.blue),
+            FoodStamp(
+                title: "Yufka", price: 20, color: Colors.lightGreenAccent),
+            FoodStamp(title: "Pizza", price: 30, color: Colors.purpleAccent),
+            FoodStamp(title: "Sushi", price: 40, color: Colors.pink),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class FoodStamp extends StatelessWidget {
+  final String title;
+  final int price;
+  final Color color;
+  const FoodStamp(
+      {required this.title,
+      required this.price,
+      required this.color,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: color,
+      ),
+      margin: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 8),
+          Text('Price: $price €', style: TextStyle(fontSize: 18)),
+          SizedBox(height: 8),
+          Text('Essen'),
+        ],
       ),
     );
   }

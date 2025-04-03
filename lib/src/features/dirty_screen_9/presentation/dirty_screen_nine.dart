@@ -12,56 +12,37 @@ class DirtyScreenNine extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Text('4', style: TextStyle(fontSize: 24)),
-                  Text(' + ', style: TextStyle(fontSize: 24)),
-                  Text('5', style: TextStyle(fontSize: 24)),
-                  Text(' = ', style: TextStyle(fontSize: 24)),
-                  Text('9', style: TextStyle(fontSize: 24)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Text('3', style: TextStyle(fontSize: 24)),
-                  Text(' + ', style: TextStyle(fontSize: 24)),
-                  Text('3', style: TextStyle(fontSize: 24)),
-                  Text(' = ', style: TextStyle(fontSize: 24)),
-                  Text('6', style: TextStyle(fontSize: 24)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Text('2', style: TextStyle(fontSize: 24)),
-                  Text(' + ', style: TextStyle(fontSize: 24)),
-                  Text('8', style: TextStyle(fontSize: 24)),
-                  Text(' = ', style: TextStyle(fontSize: 24)),
-                  Text('10', style: TextStyle(fontSize: 24)),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Text('7', style: TextStyle(fontSize: 24)),
-                  Text(' + ', style: TextStyle(fontSize: 24)),
-                  Text('1', style: TextStyle(fontSize: 24)),
-                  Text(' = ', style: TextStyle(fontSize: 24)),
-                  Text('8', style: TextStyle(fontSize: 24)),
-                ],
-              ),
-            ),
+            MiniAddition(num1: 4, num2: 5),
+            MiniAddition(num1: 3, num2: 3),
+            MiniAddition(num1: 2, num2: 8),
+            MiniAddition(
+              num1: 7,
+              num2: 1,
+            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MiniAddition extends StatelessWidget {
+  final int num1;
+  final int num2;
+  const MiniAddition({required this.num1, required this.num2, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          Text('$num1', style: TextStyle(fontSize: 24)),
+          Text(' + ', style: TextStyle(fontSize: 24)),
+          Text('$num2', style: TextStyle(fontSize: 24)),
+          Text(' = ', style: TextStyle(fontSize: 24)),
+          Text('${num1 + num2}', style: TextStyle(fontSize: 24)),
+        ],
       ),
     );
   }
