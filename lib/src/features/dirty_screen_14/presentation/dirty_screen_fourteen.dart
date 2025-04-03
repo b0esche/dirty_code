@@ -12,63 +12,34 @@ class DirtyScreenFourteen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.movie, size: 50),
-                    SizedBox(height: 8),
-                    Text('The Shawshank Redemption',
-                        style: TextStyle(fontSize: 22)),
-                    Text('1994', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.movie, size: 50),
-                    SizedBox(height: 8),
-                    Text('The Godfather', style: TextStyle(fontSize: 22)),
-                    Text('1972', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.movie, size: 50),
-                    SizedBox(height: 8),
-                    Text('The Dark Knight', style: TextStyle(fontSize: 22)),
-                    Text('2008', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              margin: EdgeInsets.all(8),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.movie, size: 50),
-                    SizedBox(height: 8),
-                    Text('Pulp Fiction', style: TextStyle(fontSize: 22)),
-                    Text('1994', style: TextStyle(fontSize: 16)),
-                  ],
-                ),
-              ),
-            ),
+            MovieCard(title: "The Shawshank Redemption", year: 1994),
+            MovieCard(title: "THe Godfather", year: 1972),
+            MovieCard(title: "The Dark Knight", year: 2008),
+            MovieCard(title: "Pulp Fiction", year: 1994),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MovieCard extends StatelessWidget {
+  final String title;
+  final int year;
+  const MovieCard({required this.title, required this.year, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.all(8),
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Icon(Icons.movie, size: 50),
+            SizedBox(height: 8),
+            Text(title, style: TextStyle(fontSize: 22)),
+            Text('$year', style: TextStyle(fontSize: 16)),
           ],
         ),
       ),

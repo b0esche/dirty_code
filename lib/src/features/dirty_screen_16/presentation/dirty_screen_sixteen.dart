@@ -12,45 +12,49 @@ class DirtyScreenSixteen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: NetworkImage('https://picsum.photos/100'),
-              ),
-              title: const Text('Alice Johnson'),
-              subtitle: const Text('Project Manager'),
-              trailing: const Icon(Icons.arrow_forward),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: NetworkImage('https://picsum.photos/101'),
-              ),
-              title: const Text('Bob Smith'),
-              subtitle: const Text('Developer'),
-              trailing: const Icon(Icons.arrow_forward),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: NetworkImage('https://picsum.photos/102'),
-              ),
-              title: const Text('Catherine Lee'),
-              subtitle: const Text('Designer'),
-              trailing: const Icon(Icons.arrow_forward),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: NetworkImage('https://picsum.photos/103'),
-              ),
-              title: const Text('David Wilson'),
-              subtitle: const Text('Product Owner'),
-              trailing: const Icon(Icons.arrow_forward),
-              onTap: () {},
-            ),
+            UserInfoTile(
+                name: "Alice Johnson",
+                description: "Praject Manager",
+                pic: 'https://picsum.photos/100'),
+            UserInfoTile(
+                name: "Bob Smith",
+                description: "Developer",
+                pic: 'https://picsum.photos/101'),
+            UserInfoTile(
+                name: "Cathrine Lee",
+                description: "Designer",
+                pic: 'https://picsum.photos/102'),
+            UserInfoTile(
+                name: "David Wilson",
+                description: "Product Owner",
+                pic: 'https://picsum.photos/103'),
           ],
         ),
       ),
+    );
+  }
+}
+
+class UserInfoTile extends StatelessWidget {
+  final String name;
+  final String description;
+  final String pic;
+  const UserInfoTile(
+      {required this.name,
+      required this.description,
+      required this.pic,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage(pic),
+      ),
+      title: Text(name),
+      subtitle: Text(description),
+      trailing: const Icon(Icons.arrow_forward),
+      onTap: () {},
     );
   }
 }

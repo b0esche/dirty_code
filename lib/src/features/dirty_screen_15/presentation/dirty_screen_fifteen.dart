@@ -12,84 +12,62 @@ class DirtyScreenFifteen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.orange,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Spaghetti Bolognese',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Ingredients: Spaghetti, Beef, Tomato Sauce',
-                      style: TextStyle(fontSize: 18)),
-                ],
-              ),
+            ColoredFoodCard(
+              title: "Spaghetti Bolognese",
+              description: "Spaghetti, Beef, Tomato Sauce",
+              color: Colors.orange,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.green,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Caesar Salad',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Ingredients: Lettuce, Croutons, Parmesan',
-                      style: TextStyle(fontSize: 18)),
-                ],
-              ),
+            ColoredFoodCard(
+              title: "Caesar Salad",
+              description: "Lettuce, Croutins, Parmesan",
+              color: const Color.fromARGB(255, 0, 255, 42),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.red,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Margherita Pizza',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Ingredients: Dough, Tomato, Mozzarella',
-                      style: TextStyle(fontSize: 18)),
-                ],
-              ),
+            ColoredFoodCard(
+              title: "Margherita Pizza",
+              description: "Dough, Tomato, Mozzarella",
+              color: const Color.fromARGB(255, 255, 47, 0),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.blue,
-              ),
-              margin: const EdgeInsets.all(4),
-              padding: const EdgeInsets.all(16.0),
-              child: const Column(
-                children: [
-                  Text(
-                    'Grilled Chicken',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text('Ingredients: Chicken, Spices, Lemon',
-                      style: TextStyle(fontSize: 18)),
-                ],
-              ),
+            ColoredFoodCard(
+              title: "Grilled Chicken",
+              description: "Chicken, Spices, Lemon",
+              color: const Color.fromARGB(255, 0, 157, 255),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ColoredFoodCard extends StatelessWidget {
+  final String title;
+  final String description;
+  final Color color;
+
+  const ColoredFoodCard(
+      {required this.title,
+      required this.description,
+      required this.color,
+      super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: color,
+      ),
+      margin: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 8),
+          Text("Ingredients: $description", style: TextStyle(fontSize: 18)),
+        ],
       ),
     );
   }
